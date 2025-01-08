@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-postgresql-app
+data:
+  postgresql-db-name: {{ .Values.postgresql.postgresqlDatabase | quote }}
+  postgresql-username: {{ .Values.postgresql.postgresqlUsername | quote }}
+  postgresql-password: {{ .Values.postgresql.postgresqlPassword | quote }}
+  postgresql-host: {{ .Values.postgresql.postgresqlHost | quote }}
+  postgresql-port: {{ .Values.postgresql.postgresqlPort | quote }}
