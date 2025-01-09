@@ -43,12 +43,23 @@ app:
     targetCPUUtilizationPercentage: 80
     # targetMemoryUtilizationPercentage: 80
 
+# Enable/Disable self-managed PostgreSQL (via Helm dependency)
 postgresql:
+  enabled: true
   postgresqlUsername: "postgres"
   postgresqlPassword: "postgressecret"
   postgresqlDatabase: "mydatabase"
-  postgresqlHost: "postgresql-service"
+  postgresqlHost: "{{ .Release.Name }}-postgresql"  # Dynamically generated service name
   postgresqlPort: "5432"
+  
+# Managed PostgreSQL configuration (used if `postgresql.enabled` is false)
+managedPostgresql:
+  enabled: false
+  username: "manageduser"
+  password: "managedsecret"
+  database: "manageddb"
+  host: "managed-postgresql-host"
+  port: "5432"
 
 redis:
   password: "mysupersecretredispassword"

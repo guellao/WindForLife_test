@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-postgresql-app
 data:
-  postgresql-db-name: {{ .Values.postgresql.postgresqlDatabase | quote }}
-  postgresql-username: {{ .Values.postgresql.postgresqlUsername | quote }}
-  postgresql-password: {{ .Values.postgresql.postgresqlPassword | quote }}
-  postgresql-host: {{ .Values.postgresql.postgresqlHost | quote }}
-  postgresql-port: {{ .Values.postgresql.postgresqlPort | quote }}
+  postgresql-db-name: {{ if .Values.postgresql.enabled }}{{ .Values.postgresql.postgresqlDatabase | quote }}{{ else }}{{ .Values.managedPostgresql.database | quote }}{{ end }}
+  postgresql-username: {{ if .Values.postgresql.enabled }}{{ .Values.postgresql.postgresqlUsername | quote }}{{ else }}{{ .Values.managedPostgresql.username | quote }}{{ end }}
+  postgresql-password: {{ if .Values.postgresql.enabled }}{{ .Values.postgresql.postgresqlPassword | quote }}{{ else }}{{ .Values.managedPostgresql.password | quote }}{{ end }}
+  postgresql-host: {{ if .Values.postgresql.enabled }}{{ .Values.postgresql.postgresqlHost | quote }}{{ else }}{{ .Values.managedPostgresql.host | quote }}{{ end }}
+  postgresql-port: {{ if .Values.postgresql.enabled }}{{ .Values.postgresql.postgresqlPort | quote }}{{ else }}{{ .Values.managedPostgresql.port | quote }}{{ end }}
