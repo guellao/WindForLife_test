@@ -45,7 +45,7 @@ app:
 
 # Enable/Disable self-managed PostgreSQL (via Helm dependency)
 postgresql:
-  enabled: true
+  enabled: false
   postgresqlUsername: "postgres"
   postgresqlPassword: "postgressecret"
   postgresqlDatabase: "mydatabase"
@@ -54,7 +54,7 @@ postgresql:
   
 # Managed PostgreSQL configuration (used if `postgresql.enabled` is false)
 managedPostgresql:
-  enabled: false
+  enabled: true
   username: "manageduser"
   password: "managedsecret"
   database: "manageddb"
