@@ -49,7 +49,7 @@ postgresql:
   postgresqlUsername: "postgres"
   postgresqlPassword: "postgressecret"
   postgresqlDatabase: "mydatabase"
-  postgresqlHost: "{{ .Release.Name }}-postgresql"  # Dynamically generated service name
+  postgresqlHost: "postgresql-service"
   postgresqlPort: "5432"
   
 # Managed PostgreSQL configuration (used if `postgresql.enabled` is false)
