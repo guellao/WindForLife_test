@@ -7,4 +7,4 @@ data:
   postgresql-username: {{ if .Values.postgresql.enabled }}{{ .Values.postgresql.postgresqlUsername | quote }}{{ else }}{{ .Values.managedPostgresql.username | quote }}{{ end }}
   postgresql-password: {{ if .Values.postgresql.enabled }}{{ .Values.postgresql.postgresqlPassword | quote }}{{ else }}{{ .Values.managedPostgresql.password | quote }}{{ end }}
   postgresql-host: {{ if .Values.postgresql.enabled }}{{ .Values.postgresql.postgresqlHost | quote }}{{ else }}{{ .Values.managedPostgresql.host | quote }}{{ end }}
-  postgresql-port: {{ if .Values.postgresql.enabled }}{{ .Values.postgresql.postgresqlPort | quote }}{{ else }}{{ .Values.managedPostgresql.port | quote }}{{ end }}
+postgresql-port: {{ if .Values.postgresql.enabled }}{{ .Values.postgresql.postgresqlPort | quote }}{{ else }}{{ .Values.managedPostgresql.port | quote }}{{ end }}
