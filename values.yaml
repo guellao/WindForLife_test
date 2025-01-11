@@ -19,7 +19,7 @@ app:
     type: ClusterIP
     port: 80
   ingress:
-    enabled: false
+    enabled: true
     className: ""
     annotations:
       kubernetes.io/ingress.class: nginx
@@ -37,11 +37,11 @@ app:
       cpu: 2m
       memory: 8Mi
   autoscaling:
-    enabled: false
+    enabled: true
     minReplicas: 1
     maxReplicas: 100
     targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
 
 # Enable/Disable self-managed PostgreSQL (via Helm dependency)
 postgresql:
